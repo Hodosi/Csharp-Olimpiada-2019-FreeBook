@@ -1,0 +1,10 @@
+D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\bin\Debug\AplicatieFreeBook.exe
+D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\bin\Debug\AplicatieFreeBook.pdb
+D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.csprojAssemblyReference.cache
+D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.FreeBookHome.resources
+D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.Properties.Resources.resources
+D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.csproj.GenerateResource.cache
+D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.exe
+D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.pdb
+D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.CreeazaContFreeBook.resources
+D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.LogareFreeBook.resources
