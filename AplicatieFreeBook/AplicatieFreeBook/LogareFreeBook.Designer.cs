@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox_email = new System.Windows.Forms.TextBox();
+            this.button_Login = new System.Windows.Forms.Button();
             this.textBox_parola = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button_Login = new System.Windows.Forms.Button();
+            this.textBox_email = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,39 +51,6 @@
             this.panel1.Size = new System.Drawing.Size(556, 305);
             this.panel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 75);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Email:";
-            // 
-            // textBox_email
-            // 
-            this.textBox_email.Location = new System.Drawing.Point(151, 70);
-            this.textBox_email.Name = "textBox_email";
-            this.textBox_email.Size = new System.Drawing.Size(343, 34);
-            this.textBox_email.TabIndex = 1;
-            // 
-            // textBox_parola
-            // 
-            this.textBox_parola.Location = new System.Drawing.Point(151, 130);
-            this.textBox_parola.Name = "textBox_parola";
-            this.textBox_parola.PasswordChar = '*';
-            this.textBox_parola.Size = new System.Drawing.Size(343, 34);
-            this.textBox_parola.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(56, 135);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 29);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Parola:";
-            // 
             // button_Login
             // 
             this.button_Login.Location = new System.Drawing.Point(230, 202);
@@ -94,6 +61,41 @@
             this.button_Login.UseVisualStyleBackColor = true;
             this.button_Login.Click += new System.EventHandler(this.button_Login_Click);
             // 
+            // textBox_parola
+            // 
+            this.textBox_parola.Location = new System.Drawing.Point(151, 130);
+            this.textBox_parola.Name = "textBox_parola";
+            this.textBox_parola.PasswordChar = '*';
+            this.textBox_parola.Size = new System.Drawing.Size(343, 34);
+            this.textBox_parola.TabIndex = 3;
+            this.textBox_parola.Text = "dana";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(56, 135);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 29);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Parola:";
+            // 
+            // textBox_email
+            // 
+            this.textBox_email.Location = new System.Drawing.Point(151, 70);
+            this.textBox_email.Name = "textBox_email";
+            this.textBox_email.Size = new System.Drawing.Size(343, 34);
+            this.textBox_email.TabIndex = 1;
+            this.textBox_email.Text = "dana@gmail.com";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(65, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Email:";
+            // 
             // LogareFreeBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -103,6 +105,7 @@
             this.Name = "LogareFreeBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogareFreeBook";
+            this.Load += new System.EventHandler(this.LogareFreeBook_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

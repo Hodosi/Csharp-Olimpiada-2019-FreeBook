@@ -41,6 +41,7 @@ namespace AplicatieFreeBook
             {
                 MessageBox.Show("Iregistrare cu succes");
                 this.Hide();
+                GLOBAL.emailGlobal = em;
                 MeniuFreeBook frmMeniu = new MeniuFreeBook();
                 frmMeniu.ShowDialog();
                 this.Close();

@@ -37,5 +37,10 @@ namespace AplicatieFreeBook
                MessageBox.Show("Eroare Autentificare"); 
             }
         }
+
+        private void LogareFreeBook_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
