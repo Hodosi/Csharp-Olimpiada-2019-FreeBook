@@ -71,11 +71,11 @@ namespace AplicatieFreeBook
             return table;
         }
 
-        public DataColumn getTitluCarti()
+        public DataColumn getcartiCarti()
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = "SELECT titlu AS Titlu FROM carti INNER JOIN imprumut ON carti.IdCarte=imprumut.Id_Carte WHERE email=@em ";
-            command.Connection = conn.GetConnection(); 
+            command.Connection = conn.GetConnection();
 
             command.Parameters.Add("em", SqlDbType.VarChar).Value = GLOBAL.emailGlobal;
             //command.Parameters.Add("data", SqlDbType.DateTime).Value = date;
@@ -88,6 +88,42 @@ namespace AplicatieFreeBook
             DataColumn columns = table.Columns[0];
 
             return columns;
+        }
+
+        public DataTable getallCarti(DateTime date1, DateTime date2)
+        {
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT utilizatori.email FROM utilizatori INNER JOIN imprumut ON imprumut.email=utilizatori.email WHERE data_imprumut>@date1 AND data_imprumut<@date2 ";
+            command.Connection = conn.GetConnection();
+
+            //command.Parameters.Add("em", SqlDbType.VarChar).Value = GLOBAL.emailGlobal;
+            command.Parameters.Add("date1", SqlDbType.DateTime).Value = date1;
+            command.Parameters.Add("date2", SqlDbType.DateTime).Value = date2;
+
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            return table;
+        }
+
+        public int getallCartiLuna(DateTime date1, DateTime date2)
+        {
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT utilizatori.email FROM utilizatori INNER JOIN imprumut ON imprumut.email=utilizatori.email WHERE data_imprumut>@date1 AND data_imprumut<@date2 ";
+            command.Connection = conn.GetConnection();
+
+            //command.Parameters.Add("em", SqlDbType.VarChar).Value = GLOBAL.emailGlobal;
+            command.Parameters.Add("date1", SqlDbType.DateTime).Value = date1;
+            command.Parameters.Add("date2", SqlDbType.DateTime).Value = date2;
+
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            return table.Rows.Count;
         }
 
     }

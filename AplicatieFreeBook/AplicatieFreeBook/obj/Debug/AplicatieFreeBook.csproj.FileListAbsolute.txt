@@ -9,3 +9,4 @@ D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.
 D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.CreeazaContFreeBook.resources
 D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.LogareFreeBook.resources
 D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.MeniuFreeBook.resources
+D:\Desktop\2019\AplicatieFreeBook\AplicatieFreeBook\obj\Debug\AplicatieFreeBook.AfiseazaCarte.resources
