@@ -73,7 +73,7 @@ namespace AplicatieFreeBook
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Green)
+            if (this.dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Red)
             {
                 MessageBox.Show("Perioada imprumutului a expirat!");
             }
@@ -137,6 +137,7 @@ namespace AplicatieFreeBook
         {
             //draw_utilizatori();
             loadcomobo();
+            draw_carti();
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -202,11 +203,108 @@ namespace AplicatieFreeBook
 
             //--------------pentru luna 12----------------------
             date1 = new DateTime(combodate, 12, 1);
-            date2 = new DateTime(combodate+1, 1, 1);
+            date2 = new DateTime(combodate + 1, 1, 1);
             nrcartiluna = imp.getallCartiLuna(date1, date2);
             // MessageBox.Show(nrcartiluna.ToString());
             graphics.FillRectangle(brush1, (lunaWidth * 2) * 12, unitWidht * (10 - nrcartiluna + 2), lunaWidth, (unitWidht * nrcartiluna));
             graphics.DrawString(nrcartiluna.ToString(), font, brush, (lunaWidth * 2) * 12, unitWidht * (10 - nrcartiluna + 1));
+
+        }
+
+        public void draw_carti()
+        {
+            Graphics graphics = this.panel_graf_carti.CreateGraphics();
+            Pen pen = new Pen(Color.Black);
+            Brush brush0black = new SolidBrush(Color.Black);
+            Brush brush1red = new SolidBrush(Color.Red);
+            Brush brush2green = new SolidBrush(Color.Green);
+            Brush brush3yellow = new SolidBrush(Color.Yellow);
+            Brush brush4purple = new SolidBrush(Color.Purple);
+            Font fontTitlu = new Font("Arial", 22);
+            Font fontcarti = new Font("Arial", 12);
+
+            int grafHeight = this.panel_graf_carti.ClientSize.Height;
+            int grafWidht = this.panel_graf_carti.ClientSize.Width;
+
+            int cartCount = carte.getallCartiCount();
+            int[] frecventa = new int[cartCount + 1];
+            DataTable table = carte.getallCarti();
+            for (int i = 1; i <= cartCount; i++)
+            {
+                frecventa[i] = 0;
+            }
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                frecventa[int.Parse(table.Rows[i][0].ToString())]++;
+            }
+
+            int[] maxim = new int[5];
+            int[] maximnr = new int[5];
+            maxim[0] = 10000;
+            for (int i = 1; i <= 4; i++)
+            {
+                maxim[i] = 1;
+                for (int j = 1; j <= cartCount; j++)
+                {
+                    if (frecventa[maxim[i]] < frecventa[j])
+                    {
+                        maxim[i] = j;
+                    }
+                }
+                maximnr[i] = frecventa[maxim[i]];
+                frecventa[maxim[i]] = 0;
+            }
+
+            //for (int i = 1; i <= 4; i++)
+            //{
+            //    string titlu = carte.getallCartiByid(maxim[i]);
+            //    //MessageBox.Show(titlu + "  " + maximnr[i].ToString());
+            //}
+
+            graphics.DrawString("Carti populare", fontTitlu, brush0black, grafWidht / 2 - 120, 10);
+            graphics.DrawRectangle(pen, 20, grafHeight - 50, grafWidht - 40, 40);
+
+            string titlu = carte.getallCartiByid(maxim[1]);
+            graphics.FillRectangle(brush1red, 30, grafHeight - 40, 10, 20);
+            graphics.DrawString(titlu, fontcarti, brush0black, 50, grafHeight - 40);
+            titlu = carte.getallCartiByid(maxim[2]);
+            graphics.FillRectangle(brush2green, 250, grafHeight - 40, 10, 20);
+            graphics.DrawString(titlu, fontcarti, brush0black, 270, grafHeight - 40);
+            titlu = carte.getallCartiByid(maxim[3]);
+            graphics.FillRectangle(brush3yellow, 360, grafHeight - 40, 10, 20);
+            graphics.DrawString(titlu, fontcarti, brush0black, 380, grafHeight - 40);
+            titlu = carte.getallCartiByid(maxim[4]);
+            graphics.FillRectangle(brush4purple, 550, grafHeight - 40, 10, 20);
+            graphics.DrawString(titlu, fontcarti, brush0black, 570, grafHeight - 40);
+
+            grafHeight -= 150;
+            //float total = values.Sum();
+
+            //// Draw the slices.
+            //float start_angle = 0;
+            //for (int i = 0; i < values.Length; i++)
+            //{
+            //    float sweep_angle = values[i] * 360f / total;
+            //    gr.FillPie(brushes[i % brushes.Length],
+            //        rect, start_angle, sweep_angle);
+            //    gr.DrawPie(pens[i % pens.Length],
+            //        rect, start_angle, sweep_angle);
+            //    start_angle += sweep_angle;
+            //}
+
+            int total = maximnr.Sum();
+            float start_angle = 0;
+            float sweep_angle = maximnr[1] * 360 / total;
+            graphics.FillPie(brush1red, 250, 50, 200, 200, start_angle, sweep_angle);
+            start_angle += sweep_angle;
+            sweep_angle = maximnr[2] * 360 / total;
+            graphics.FillPie(brush2green, 250, 50, 200, 200, start_angle, sweep_angle);
+            start_angle += sweep_angle;
+            sweep_angle = maximnr[3] * 360 / total;
+            graphics.FillPie(brush3yellow, 250, 50, 200, 200, start_angle, sweep_angle);
+            start_angle += sweep_angle;
+            sweep_angle = maximnr[4] * 360 / total;
+            graphics.FillPie(brush4purple, 250, 50, 200, 200, start_angle, sweep_angle);
 
         }
 
@@ -217,6 +315,11 @@ namespace AplicatieFreeBook
             {
                 this.comboBox1.Items.Add(i);
             }
+        }
+
+        private void button_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -39,14 +39,16 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage_Statistici_Bibllioteca = new System.Windows.Forms.TabPage();
-            this.label_email = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage_nr_Utilizatori = new System.Windows.Forms.TabPage();
-            this.tabPage_carti_populare = new System.Windows.Forms.TabPage();
-            this.panel_graf_utilizatori = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel_graf_utilizatori = new System.Windows.Forms.Panel();
+            this.tabPage_carti_populare = new System.Windows.Forms.TabPage();
+            this.panel_graf_carti = new System.Windows.Forms.Panel();
+            this.label_email = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button_exit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_Carti_disponibile.SuspendLayout();
@@ -56,10 +58,12 @@
             this.tabPage_Statistici_Bibllioteca.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage_nr_Utilizatori.SuspendLayout();
+            this.tabPage_carti_populare.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button_exit);
             this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Controls.Add(this.label_email);
             this.panel1.Controls.Add(this.label1);
@@ -173,24 +177,6 @@
             this.tabPage_Statistici_Bibllioteca.Text = "Statistici Bibllioteca";
             this.tabPage_Statistici_Bibllioteca.UseVisualStyleBackColor = true;
             // 
-            // label_email
-            // 
-            this.label_email.AutoSize = true;
-            this.label_email.Location = new System.Drawing.Point(512, 22);
-            this.label_email.Name = "label_email";
-            this.label_email.Size = new System.Drawing.Size(29, 29);
-            this.label_email.TabIndex = 1;
-            this.label_email.Text = "\"\"";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(331, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Email utilizator:";
-            // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage_nr_Utilizatori);
@@ -215,21 +201,14 @@
             this.tabPage_nr_Utilizatori.Text = "Numar de utilizatori";
             this.tabPage_nr_Utilizatori.UseVisualStyleBackColor = true;
             // 
-            // tabPage_carti_populare
+            // label3
             // 
-            this.tabPage_carti_populare.Location = new System.Drawing.Point(4, 38);
-            this.tabPage_carti_populare.Name = "tabPage_carti_populare";
-            this.tabPage_carti_populare.Size = new System.Drawing.Size(1022, 450);
-            this.tabPage_carti_populare.TabIndex = 1;
-            this.tabPage_carti_populare.Text = "Carti Populare";
-            this.tabPage_carti_populare.UseVisualStyleBackColor = true;
-            // 
-            // panel_graf_utilizatori
-            // 
-            this.panel_graf_utilizatori.Location = new System.Drawing.Point(33, 74);
-            this.panel_graf_utilizatori.Name = "panel_graf_utilizatori";
-            this.panel_graf_utilizatori.Size = new System.Drawing.Size(954, 350);
-            this.panel_graf_utilizatori.TabIndex = 0;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(59, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(153, 29);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "An imprumut:";
             // 
             // comboBox1
             // 
@@ -240,14 +219,59 @@
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label3
+            // panel_graf_utilizatori
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(59, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 29);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "An imprumut:";
+            this.panel_graf_utilizatori.Location = new System.Drawing.Point(33, 74);
+            this.panel_graf_utilizatori.Name = "panel_graf_utilizatori";
+            this.panel_graf_utilizatori.Size = new System.Drawing.Size(954, 350);
+            this.panel_graf_utilizatori.TabIndex = 0;
+            // 
+            // tabPage_carti_populare
+            // 
+            this.tabPage_carti_populare.Controls.Add(this.panel_graf_carti);
+            this.tabPage_carti_populare.Location = new System.Drawing.Point(4, 38);
+            this.tabPage_carti_populare.Name = "tabPage_carti_populare";
+            this.tabPage_carti_populare.Size = new System.Drawing.Size(1022, 450);
+            this.tabPage_carti_populare.TabIndex = 1;
+            this.tabPage_carti_populare.Text = "Carti Populare";
+            this.tabPage_carti_populare.UseVisualStyleBackColor = true;
+            // 
+            // panel_graf_carti
+            // 
+            this.panel_graf_carti.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel_graf_carti.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_graf_carti.Location = new System.Drawing.Point(0, 0);
+            this.panel_graf_carti.Name = "panel_graf_carti";
+            this.panel_graf_carti.Size = new System.Drawing.Size(1022, 450);
+            this.panel_graf_carti.TabIndex = 0;
+            // 
+            // label_email
+            // 
+            this.label_email.AutoSize = true;
+            this.label_email.Location = new System.Drawing.Point(512, 22);
+            this.label_email.Name = "label_email";
+            this.label_email.Size = new System.Drawing.Size(29, 29);
+            this.label_email.TabIndex = 1;
+            this.label_email.Text = "\"\"";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(331, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Email utilizator:";
+            // 
+            // button_exit
+            // 
+            this.button_exit.Location = new System.Drawing.Point(780, 22);
+            this.button_exit.Name = "button_exit";
+            this.button_exit.Size = new System.Drawing.Size(193, 43);
+            this.button_exit.TabIndex = 3;
+            this.button_exit.Text = "Exit";
+            this.button_exit.UseVisualStyleBackColor = true;
+            this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
             // 
             // MeniuFreeBook
             // 
@@ -271,6 +295,7 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage_nr_Utilizatori.ResumeLayout(false);
             this.tabPage_nr_Utilizatori.PerformLayout();
+            this.tabPage_carti_populare.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -296,5 +321,7 @@
         private System.Windows.Forms.TabPage tabPage_carti_populare;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Panel panel_graf_carti;
+        private System.Windows.Forms.Button button_exit;
     }
 }
